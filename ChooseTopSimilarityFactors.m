@@ -23,7 +23,8 @@ if (length(allFactors) <= F)
 end
 
 % Your code here:
-factors = allFactors; %%% REMOVE THIS LINE
-
+tmp = arrayfun(@(x) sort(x.val,"descend")(1), allFactors, "UniformOutput", false);
+[ordered, ord_idx] = sort(cell2mat(tmp),"descend");
+factors = allFactors(ord_idx(1:F));
 end
 
